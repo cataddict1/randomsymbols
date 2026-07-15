@@ -2,11 +2,16 @@ build:
 	@cc src/main.c -o randomsymbols -lncurses 
 
 install:
-	@echo "copying binary into /usr/local/bin/"
-	@sudo cp randomsymbols /usr/local/bin/
+	@echo "copying binary into /usr/bin/"
+	@sudo cp randomsymbols /usr/bin/
+
+all:
+	@cc src/main.c -o randomsymbols -lncurses
+	@echo "copying binary into /usr/bin/"
+	@sudo cp randomsymbols /usr/bin/
 
 clean:
-	@rm -rf /build
+	@rm -rf randomsymbols
 
 uninstall:
-	@sudo rm /usr/local/bin/randomsymbols
+	@sudo rm /usr/bin/randomsymbols
