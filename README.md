@@ -6,9 +6,7 @@
 # Install
 ```bash
 git clone https://github.com/cataddict1/randomsymbols.git
-cd randomsymbols/
-make build
-make install
+cd randomsymbols/ && sudo make all
 ```
 
 # Usage
