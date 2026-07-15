@@ -4,11 +4,13 @@
 ![Image](example.png)
 
 # Install
-```
+```bash
 git clone https://github.com/cataddict1/randomsymbols.git
 make build
 make install
 ```
 
 # Usage
+```
+randomsymbols
 ```
