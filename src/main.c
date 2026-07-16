@@ -3,7 +3,7 @@
 #include <ncurses.h>
 #include <stdlib.h>
 #include <time.h>
-
+#include <unistd.h>
 
 void randhashpos(int *x, int *y, int max_y, int max_x) {
     srand(time(NULL));
@@ -39,6 +39,7 @@ int display(int max_y, int max_x) {
         mvprintw(y, x, "%c", randomsymbol());
         attroff(COLOR_PAIR(pair));
         pair++;
+        usleep(500000);
         if (pair >= 8) {
             pair = 1;
         } else {
@@ -54,7 +55,6 @@ int display(int max_y, int max_x) {
 int main(int argc, const char *argv[]) {
     initscr();
     noecho();
-    cbreak();
 
     if (has_colors() == false) {
         endwin();
@@ -71,9 +71,10 @@ int main(int argc, const char *argv[]) {
     nodelay(stdscr, TRUE);
 
     while (display(max_y, max_x)) {
+	
         ch = getch();
 
-        if (ch == 27 || ch == 'q') { // 27 == ESCAPE
+        if (ch == 27 || ch == 'q') { // this doesnt work for some reason, just press ctrl+c
             break;
         } else { continue; }
     }
